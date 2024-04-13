@@ -1,0 +1,16 @@
+class Solution {
+    public int solution(int[] A) {
+        int left = 0;
+        int right = 0;
+        int min = Integer.MAX_VALUE;
+        for(int number : A) {
+            right += number;
+        }
+        for(int i = 0; i < A.length -1; i++) {  // 마지막하나는 남겨야되니까 A.length -1
+            left += A[i];
+            right -= A[i];
+            min = Math.min(min, Math.abs(left - right));
+        }   
+        return min;
+    }
+}
