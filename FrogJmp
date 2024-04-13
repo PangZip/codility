@@ -1,0 +1,15 @@
+// 위치X에서 위치Y까지 한번에D만큼 이동했을때 최소 몇번을 이동해야하는가
+// 이동해야할 총 거리는 Y-X, D로 나눠서 나머지가 있다면 +1, 아니면 그대로 반환해줌
+// 조건에 X<=Y 써져있으니 총 거리가 0일때도 제어해줌
+
+class Solution {
+    public int solution(int X, int Y, int D) {
+        int gap = Y-X;
+
+        if (gap == 0) {
+            return 0;
+        } 
+
+        return (gap % D) > 0 ? (gap / D) + 1 : gap / D;
+    }
+}
