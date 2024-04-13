@@ -1,0 +1,11 @@
+import java.util.Arrays;
+
+// 모든 항의 곱의 최대값 이런 경우에는 소트해서 최대값 찾으면된다
+class Solution {
+    public int solution(int[] A) {
+        Arrays.sort(A);
+        int tmp1 = A[A.length-1] * A[A.length-2] * A[A.length-3];
+        int tmp2 = A[A.length-1] * A[0] * A[1];
+        return Math.max(tmp1,tmp2);
+    }
+}
