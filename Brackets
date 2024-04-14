@@ -1,0 +1,21 @@
+import java.util.Stack;
+
+// stack은 쌓은거중 가장최근거랑 비교하면서 하나씩 삭제. 비우면 처리끝.
+class Solution {
+    public int solution(String S) {
+        Stack<Character> stack = new Stack<>();
+        char lastChar;
+        for (char c : S.toCharArray()) {
+            if (c == '(' || c == '[' || c == '{') stack.push(c);
+            else {
+                if (stack.empty()) return 0;
+                lastChar = stack.pop();
+
+                if (c == ')' && lastChar != '(') return 0;
+                else if (c == ']' && lastChar != '[') return 0;
+                else if (c == '}' && lastChar != '{') return 0;
+            }
+        }
+        return stack.isEmpty() ? 1 : 0;
+    }
+}
